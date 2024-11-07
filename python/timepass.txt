@@ -1,0 +1,14 @@
+import time
+
+# Define the strings
+string1 = "The cutest Teddy bear, "
+string2 = "ASHISH"
+
+# Loop indefinitely to display the strings continuously
+while True:
+    print(string1, end=" ")
+    print(string2, end=" ")
+    # Flush the output to ensure immediate display
+    print("\r", end="", flush=True)
+    # Sleep for a short duration to control the speed of display
+    time.sleep(0.5)  # Adjust the sleep duration as needed

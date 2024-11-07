@@ -1,0 +1,879 @@
+# 1) Write a python program to add two numbers.
+def sum(a, b):
+    c = a + b
+    return c
+a = int(input("enter first number: "))
+b = int(input("enter second number: "))
+print(sum(a,b))
+
+# 2) Write a python program to find quotient and remainder.
+def find_q_r(div, dis):
+    quotient = div//dis
+    remainder = div%dis
+    return quotient, remainder
+
+div = int(input("enter divident: "))
+dis = int(input("enter divisor: "))
+
+quotient, remainder = find_q_r(div, dis)
+print(quotient, remainder)
+
+# 3) Write a python program to find type of objects in your system.
+objects = [1.2, 11, "red", True, None, (1,2,4), [5,6,7], 10.0000]
+for obj in objects:
+    print(f"object: {obj}, type: {type(obj)}")
+	
+# 4) Write a python program to read two numbers and display the greatest number.    
+def find_greatest(a, b):
+    if a>b: 
+        print(f"{a} is greater then {b}")
+    else:
+        print(f"{b} is greater then {a}")
+
+num1 = int(input("enter first number: "))
+num2 = int(input("enter second number: "))
+
+print(find_greatest(num1, num2))
+
+# 5) Write a python program to check whether number is even or odd.
+def find_o_e(num):
+    if num %2 == 0:
+        print("even number")
+    else:
+        print("odd number")
+
+a = int(input("enter a number: "))
+print(find_o_e(a))
+
+# 6) Write a python program to check whether a character is vowel or consonant.
+def find_v_c(ch):
+    vowel = "aeiouAEIOU"
+    if ch.isalpha() and len(ch) == 1:
+        if ch in vowel:
+            return("its a vowel")
+        else:
+            return("its a consonent")
+    else:
+        return("enter a valid character")
+ch = input("enter a character: ")
+print(find_v_c(ch))
+
+# 7) Write a python program to find largest number among three numbers.
+def find_greatest(a, b, c):
+    if a>=b and a>c:
+        print(f"{a} is greatest")
+    elif b>=a and b>c:
+        print(f"{b} is greatest")
+    else:
+        print(f"{c} is greatest")
+num1 = int(input("enter first number: "))
+num2 = int(input("enter second number: "))
+num3 = int(input("enter third number: "))
+
+print(find_greatest(num1, num2, num3))
+
+# 8) Write a python program to find all roots of a quadratic equation.
+import cmath
+def find_roots(a, b, c):
+    discriminant = (b**2) - (4*a*c)
+    if discriminant > 0:
+        #two real roots
+        r1 = (-b + discriminant ** 0.5)/(2*a)
+        r2 = (-b - discriminant ** 0.5)/(2*a)
+        return r1, r2
+    elif discriminant == 0:
+        #one real root
+        r = -b/(2*a)
+        return r
+    else:
+        #two complex roots
+        r1 = (-b + cmath.sqrt(discriminant) ** 0.5)/(2*a)
+        r2 = (-b - cmath.sqrt(discriminant) ** 0.5)/(2*a)
+        return r1, r2
+num1 = float(input("enter first number: "))
+num2 = float(input("enter second number: "))
+num3 = float(input("enter third number: "))
+print(find_roots(num1, num2, num3))
+
+# 9) Write a python program to calculate sum of natural numbers.
+def sum_naturalnum(n):
+    sum = 0
+    for i in range(1, n+1):
+        sum = sum+i
+    return sum
+num = int(input("enter number of range: "))
+print(sum_naturalnum(num))
+
+# 10) Write a python program to check leap year.
+def leapyear(year):
+    if (year %4 == 0 and year %100 != 0) or (year %400 == 0):
+        return("its a leap year")
+    else:
+        return("its not a leap year")
+year = int(input("enter a year: "))
+print(leapyear(year))
+
+# 11) Write a python program to find factorial.
+def find_factorial(num):
+    if num == 0:
+        return 1
+    else:
+        return num*(find_factorial(num-1))
+num = int(input("enter a positive number: "))
+print(find_factorial(num))
+
+# 12) Write a python program to generate multiplication table.
+def multiplication_tbl(num):
+    print(f"table for {num}: ")
+    for i in range(1, 11):
+        print(f"{num} * {i} = {num * i}")
+num = int(input("enter a number: "))
+print(multiplication_tbl(num))
+
+# 13) Write a python program to display fibonacci series. (eg. 0, 1, 1, 2, 3, 5, 8, 13, ...)
+def fibonacci(num):
+    series = [0, 1]
+    for i in range(2, num):
+        next = series[i - 1] + series[i - 2]
+        series.append(next)
+    
+    return series
+
+num = int(input("Enter a number: "))
+print(fibonacci(num))
+
+# 14) Write a python program to find gcd.
+def gcd(a, b):
+    while b:
+        a, b = b, a%b
+    
+    return a
+
+a = int(input("enter first number: "))
+b = int(input("enter second number: "))
+print(gcd(a,b))
+
+# 15) Write a python program to find lcm.
+def gcd(a, b):
+    while b:
+        a, b = b, a%b
+    
+    return a    
+
+def lcm(a, b):
+    return abs(a*b)//gcd(a,b)
+    
+a = int(input("enter first number: "))
+b = int(input("enter second number: "))
+result = lcm(a, b)
+print(result)
+
+# 16) Write a python program to reverse a number.
+def reverse_num(num):
+    num_str = str(num)
+    reversed_str = ""
+    for ch in num_str[::-1]:
+        reversed_str += ch
+    
+    reversed_num = int(reversed_str)
+    return reversed_num
+
+num = int(input("enter a number: "))
+print(reverse_num(num))
+
+# 17) Write a python program to calculate power of a number.
+def power(base, expo):
+    result = 1
+    for i in range(expo):
+        result *= base
+    
+    return result
+
+b = int(input("enter base: "))
+e = int(input("enter exponential: "))
+print(power(b, e))
+
+# 19) Write a python program to display two separate strings in single line continuously.
+s1 = "jannat"
+s2 = "ashish"
+
+while True:
+    print(f"{s1} {s2}", end=" ")
+	
+
+
+# 20) Write a python program to check whether a number is palindrome or not.
+def palindrome(num):
+    num_ = str(num)
+    reversed_ = num_[::-1]
+    print(f"num: {num_}, rev: {reversed_}")
+    if num_ == reversed_:
+        print("its a palindrome number")
+    else:
+        print("its not a palindrome")
+
+num = int(input("enter a number: "))
+print(palindrome(num))
+
+# 21) Write a python program to check whether a number is prime or not.
+def is_prime(num):
+    if num <= 0:
+        return False
+    
+    for i in range(2, num):
+        if num% i == 0:
+            return False
+    
+    return True
+num = int(input("enter a number: "))
+if is_prime(num):
+    print("its a prime number")
+else:
+    print("its not a prime number")
+	
+# 22) Write a python program to display prime numbers between two intervals.
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+    
+def display(start, end):
+    prime_num = []
+    for num in range(start, end+1):
+        if is_prime(n):
+            prime_num.append(num)
+    
+    return prime_num
+    
+num = int(input("enter a number: "))
+start = int(input("enter start point: "))
+end = int(input("enter end point: "))
+
+print(display(start, end))
+
+# 23) Write a python program to check armstrong number. (eg. 13 + 33 + 53 = 153)
+def is_armstrong(n):
+    #153 = 1^3 + 5^3 + 3^3
+    sum = 0
+    temp = num
+    length_num = len(str(num))
+    while temp > 0:
+        digit = temp % 10
+        sum += digit ** length_num
+        temp //= 10
+    
+    print(sum)
+    return(num == sum)
+
+num = int(input("enter a number: "))
+print(is_armstrong(num))
+
+
+def is_armstrong(n):
+    #153 = 1^3 + 5^3 + 3^3
+    sum = 0
+    temp = num
+    length_num = len(str(num))
+    while temp > 0:
+        digit = temp % 10
+        sum += digit ** length_num
+        temp //= 10
+    
+    print(sum)
+    return(num == sum)
+
+num = int(input("enter a number: "))
+print(is_armstrong(num))
+#display series betwn two intervals
+start = int(input("enter start: "))
+end = int(input("enter end: "))
+for num in range(start, end+1):
+    if is_armstrong(num):
+        print(num)
+
+# Write a Python function to read and reverse a string.
+def reverse(input_str):
+    return input_str[::-1]
+
+print("tannaj dna hsihsa")
+print(reverse("tannaj dna hsihsa"))
+
+# Write a Python function to count the number of vowels in a given string.
+def count_vowel(input_str):
+    vowel = "aeiouAEIOU"
+    return sum(1 for ch in input_str if ch in vowel)
+
+print(count_vowel("jannatashish"))
+
+# Write a Python function to remove duplicate characters from a string.
+# return ''.join(sorted(set(input_str), key=input_str.index))
+def remove_duplicate(input_str):
+    return ''.join(sorted(set(input_str), key = input_str.index))
+    
+
+
+
+print(remove_duplicate("ashish"))
+
+# Write a Python function to check if a given string is a palindrome.
+def is_palindrome(input_str):
+    return input_str == input_str[::-1]
+
+print(is_palindrome("radar"))
+
+# Write a Python function to count the number of words in a given string.
+def count_word(input_str):
+    return len(input_str.split())
+
+print(count_word("ashish jannat"))
+
+# Write a Python function to convert a CamelCase string to snake_case.
+import re
+def convert(input_str):
+    return re.sub(r'(?<!^)(?=[A-Z])', '_', input_str).lower()
+
+print(convert("Jannat"))
+
+# Write a Python function to convert the first letter of each word to uppercase in a given string.
+def capitalize_w(input_str):
+    return ''.join(word.capitalize() for word in input_str.split())
+
+print(capitalize_w("jannat ashish"))
+
+# Write a Python function to count the frequency of a substring within a string.
+def count_substr(input_str, substr):
+    return input_str.count(substr)
+
+print(count_substr("jannat ashish jannat", "jannat"))
+
+# Write a python program to create a Person class which includes attributes like name, country and date of birth. 
+#  Implement a method to determine the person’s age with all validations required where the current date must be accepted from the user.
+from datetime import datetime
+class person:
+    def __init__(self, name, country, dob):
+        self.name = name
+        self.country = country
+        self.dob = self.validate(dob)
+    
+    def validate(self, date_text):
+        try:
+            return datetime.strptime(date_text, 'y%-m%-d%')
+        
+        except value_error:
+            raise value_error("incorrect format, should be yyyy-mm-dd")
+    
+    def calculate_age(self, curr_date):
+        curr_date = self.validate(curr_date)
+        age = self.dob.year - curr_date.year
+        
+        if(curr_date.month, curr_date.day) < (self.dob.month, self.dob.day):
+            age = age-1
+        
+        return age
+
+name = input("enter your name: ")
+country = input("enter your country name: ")
+dob = input("enter your dob: ")
+
+person = person(name, country, dob)
+
+
+class Calculator:
+    def __init__(self, number1, number2):
+        self.number1 = number1
+        self.number2 = number2
+
+    def calculate(self, operation='square', number=None):
+        if operation == 'square':
+            return self.square(number)
+        elif operation == 'cube':
+            return self.cube(number)
+        elif operation == 'difference':
+            return self.difference()
+        else:
+            raise ValueError("Invalid operation")
+
+    def square(self, number):
+        if number == 1:
+            return self.number1 ** 2
+        elif number == 2:
+            return self.number2 ** 2
+        else:
+            raise ValueError("Invalid number, choose 1 or 2")
+
+    def cube(self, number):
+        if number == 1:
+            return self.number1 ** 3
+        elif number == 2:
+            return self.number2 ** 3
+        else:
+            raise ValueError("Invalid number, choose 1 or 2")
+
+    def difference(self):
+        return self.number1 - self.number2
+
+# Menu-driven program
+def main():
+    number1 = float(input("Enter the first number: "))
+    number2 = float(input("Enter the second number: "))
+    
+    calculator = Calculator(number1, number2)
+    
+    while True:
+        print("\nMenu:")
+        print("1. Calculate square")
+        print("2. Calculate cube")
+        print("3. Calculate difference")
+        print("4. Exit")
+        
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            num_choice = int(input("Calculate square of which number (1 or 2)? "))
+            try:
+                result = calculator.calculate(operation='square', number=num_choice)
+                print(f"The square of number{num_choice} is: {result}")
+            except ValueError as e:
+                print(e)
+        
+        elif choice == '2':
+            num_choice = int(input("Calculate cube of which number (1 or 2)? "))
+            try:
+                result = calculator.calculate(operation='cube', number=num_choice)
+                print(f"The cube of number{num_choice} is: {result}")
+            except ValueError as e:
+                print(e)
+        
+        elif choice == '3':
+            result = calculator.calculate(operation='difference')
+            print(f"The difference between number1 and number2 is: {result}")
+        
+        elif choice == '4':
+            print("Exiting the program.")
+            break
+        
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+
+# Write a Python program to create a Book class with attributes, ISBN, book_name, no_of_pages and author. 
+# Derive two classes Purchased (Price) and Donated (is_new) from the Book class. 
+# Derive another class Collection (Subject, qty) from the Purchased and Donated classes. 
+# Implement methods to read data for books from the user and display each detail of books in proper format.
+class Book:
+    def __init__(self, ISBN, book_name, no_of_pages, author):
+        self.ISBN = ISBN
+        self.book_name = book_name
+        self.no_of_pages = no_of_pages
+        self.author = author
+
+class Purchased(Book):
+    def __init__(self, ISBN, book_name, no_of_pages, author, price):
+        super().__init__(ISBN, book_name, no_of_pages, author)
+        self.price = price
+
+class Donated(Book):
+    def __init__(self, ISBN, book_name, no_of_pages, author, is_new):
+        super().__init__(ISBN, book_name, no_of_pages, author)
+        self.is_new = is_new
+
+class Collection(Purchased, Donated):
+    def __init__(self, ISBN, book_name, no_of_pages, author, price, is_new, subject, qty):
+        Purchased.__init__(self, ISBN, book_name, no_of_pages, author, price)
+        Donated.__init__(self, ISBN, book_name, no_of_pages, author, is_new)
+        self.subject = subject
+        self.qty = qty
+
+    def display(self):
+        print(f"ISBN: {self.ISBN}")
+        print(f"Book Name: {self.book_name}")
+        print(f"Number of Pages: {self.no_of_pages}")
+        print(f"Author: {self.author}")
+        print(f"Price: ${self.price}")
+        print(f"Is New: {'Yes' if self.is_new else 'No'}")
+        print(f"Subject: {self.subject}")
+        print(f"Quantity: {self.qty}")
+
+def main():
+    ISBN = input("Enter ISBN: ")
+    book_name = input("Enter book name: ")
+    no_of_pages = int(input("Enter number of pages: "))
+    author = input("Enter author: ")
+    price = float(input("Enter price: "))
+    is_new = input("Is the book new? (yes/no): ").strip().lower() == 'yes'
+    subject = input("Enter subject: ")
+    qty = int(input("Enter quantity: "))
+    
+    collection = Collection(ISBN, book_name, no_of_pages, author, price, is_new, subject, qty)
+    
+    print("\nBook Details:")
+    collection.display()
+
+if __name__ == "__main__":
+    main()
+
+
+
+# Write a Python program to manage shopping cart by designing Customer (name, contact, age) class and Product (prod_name, mrp) class with appropriate methods to read data from the user. 
+# Derive Cart class with attributes (order_id and prod_qty). 
+# Implement methods to add and to remove product quantities. Using cart object, calculate total amount of ordered product and display every detail of order.
+
+
+class Customer:
+    def __init__(self, name, contact, age):
+        self.name = name
+        self.contact = contact
+        self.age = age
+
+    def display(self):
+        print(f"Customer Name: {self.name}")
+        print(f"Contact: {self.contact}")
+        print(f"Age: {self.age}")
+
+class Product:
+    def __init__(self, prod_name, mrp):
+        self.prod_name = prod_name
+        self.mrp = mrp
+
+    def display(self):
+        print(f"Product Name: {self.prod_name}")
+        print(f"MRP: ${self.mrp:.2f}")
+
+class Cart:
+    def __init__(self, order_id):
+        self.order_id = order_id
+        self.products = {}  # Dictionary to store products and their quantities
+
+    def add_product(self, product, quantity):
+        if product.prod_name in self.products:
+            self.products[product.prod_name]['quantity'] += quantity
+        else:
+            self.products[product.prod_name] = {'product': product, 'quantity': quantity}
+
+    def remove_product(self, product_name, quantity):
+        if product_name in self.products:
+            if self.products[product_name]['quantity'] > quantity:
+                self.products[product_name]['quantity'] -= quantity
+            elif self.products[product_name]['quantity'] == quantity:
+                del self.products[product_name]
+            else:
+                print(f"Cannot remove {quantity} of {product_name}. Only {self.products[product_name]['quantity']} in cart.")
+        else:
+            print(f"Product {product_name} not in cart.")
+
+    def calculate_total(self):
+        total = 0.0
+        for item in self.products.values():
+            total += item['product'].mrp * item['quantity']
+        return total
+
+    def display_cart(self):
+        print(f"Order ID: {self.order_id}")
+        print("Cart Details:")
+        for item in self.products.values():
+            product = item['product']
+            quantity = item['quantity']
+            print(f"{product.prod_name} - ${product.mrp:.2f} x {quantity} = ${product.mrp * quantity:.2f}")
+        print(f"Total Amount: ${self.calculate_total():.2f}")
+
+def main():
+    # Customer details
+    name = input("Enter customer name: ")
+    contact = input("Enter contact number: ")
+    age = int(input("Enter age: "))
+    customer = Customer(name, contact, age)
+
+    # Create cart
+    order_id = input("Enter order ID: ")
+    cart = Cart(order_id)
+
+    # Product details and cart operations
+    while True:
+        print("\nMenu:")
+        print("1. Add Product")
+        print("2. Remove Product")
+        print("3. View Cart")
+        print("4. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            prod_name = input("Enter product name: ")
+            mrp = float(input(f"Enter MRP for {prod_name}: "))
+            quantity = int(input(f"Enter quantity for {prod_name}: "))
+            product = Product(prod_name, mrp)
+            cart.add_product(product, quantity)
+        
+        elif choice == '2':
+            prod_name = input("Enter product name to remove: ")
+            quantity = int(input(f"Enter quantity to remove for {prod_name}: "))
+            cart.remove_product(prod_name, quantity)
+        
+        elif choice == '3':
+            customer.display()
+            cart.display_cart()
+        
+        elif choice == '4':
+            print("Exiting the program.")
+            break
+        
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+
+# Write a Python program to create an abstract base class Shape with abstract method to calculate area. 
+# Derive two subclasses Circle (radius) and Rectangle (Length, width) from the Shape. 
+# Re-defined abstract method in both of these subclasses. 
+# Design menu-driven program to display area of circle and rectangle. Also make a provision to read data from the user.
+from abc import ABC, abstractmethod
+import math
+
+# Abstract base class
+class Shape(ABC):
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+# Circle class derived from Shape
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def calculate_area(self):
+        return math.pi * (self.radius ** 2)
+
+# Rectangle class derived from Shape
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    
+    def calculate_area(self):
+        return self.length * self.width
+
+def main():
+    while True:
+        print("\nMenu:")
+        print("1. Calculate area of Circle")
+        print("2. Calculate area of Rectangle")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            radius = float(input("Enter the radius of the circle: "))
+            circle = Circle(radius)
+            area = circle.calculate_area()
+            print(f"The area of the circle with radius {radius} is {area:.2f}")
+        
+        elif choice == '2':
+            length = float(input("Enter the length of the rectangle: "))
+            width = float(input("Enter the width of the rectangle: "))
+            rectangle = Rectangle(length, width)
+            area = rectangle.calculate_area()
+            print(f"The area of the rectangle with length {length} and width {width} is {area:.2f}")
+        
+        elif choice == '3':
+            print("Exiting the program.")
+            break
+        
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+
+# Write a Python program to create class Employee with attributes emp_id, emp_nm, designation, department. 
+# Also create another class Company having company_nm as an attribute. 
+# Derived Comp_Employee (Salary, experience_yrs) from Employee class and Company class, that displays all details about company employee from the given department in proper format.
+class Employee:
+    def __init__(self, emp_id, emp_nm, designation, department):
+        self.emp_id = emp_id
+        self.emp_nm = emp_nm
+        self.designation = designation
+        self.department = department
+
+class Company:
+    def __init__(self, company_nm):
+        self.company_nm = company_nm
+
+class Comp_Employee(Employee, Company):
+    def __init__(self, emp_id, emp_nm, designation, department, company_nm, salary, experience_yrs):
+        Employee.__init__(self, emp_id, emp_nm, designation, department)
+        Company.__init__(self, company_nm)
+        self.salary = salary
+        self.experience_yrs = experience_yrs
+
+    def display_details(self):
+        print("Company Employee Details:")
+        print(f"Company Name: {self.company_nm}")
+        print(f"Employee ID: {self.emp_id}")
+        print(f"Employee Name: {self.emp_nm}")
+        print(f"Designation: {self.designation}")
+        print(f"Department: {self.department}")
+        print(f"Salary: ${self.salary:.2f}")
+        print(f"Experience: {self.experience_yrs} years")
+
+def main():
+    employees = []
+    
+    while True:
+        print("\nMenu:")
+        print("1. Add Company Employee")
+        print("2. Display Employees from a Department")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            emp_id = input("Enter Employee ID: ")
+            emp_nm = input("Enter Employee Name: ")
+            designation = input("Enter Designation: ")
+            department = input("Enter Department: ")
+            company_nm = input("Enter Company Name: ")
+            salary = float(input("Enter Salary: "))
+            experience_yrs = int(input("Enter Years of Experience: "))
+            
+            employee = Comp_Employee(emp_id, emp_nm, designation, department, company_nm, salary, experience_yrs)
+            employees.append(employee)
+            print("Employee added successfully.")
+        
+        elif choice == '2':
+            search_dept = input("Enter the Department to search for: ")
+            print(f"\nEmployees in {search_dept} Department:")
+            for emp in employees:
+                if emp.department.lower() == search_dept.lower():
+                    emp.display_details()
+                    print()
+        
+        elif choice == '3':
+            print("Exiting the program.")
+            break
+        
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+
+# Write a python program to create a class Plant which includes attributes like plant_name, max_height and demonstrating the growth manner of plant using n-fibonacci method. 
+# Initialize the attributes using at least two different objects. 
+# Display the growth pattern for number of days, a user selects. (Assuming each term of fibonacci series represents number of leaves grown per day)
+class Plant:
+    def __init__(self, plant_name, max_height):
+        self.plant_name = plant_name
+        self.max_height = max_height
+
+    def fibonacci(self, n):
+        """Generate the first n Fibonacci numbers."""
+        fib_series = [0, 1]
+        for i in range(2, n):
+            fib_series.append(fib_series[-1] + fib_series[-2])
+        return fib_series[:n]
+
+    def growth_pattern(self, days):
+        """Display the growth pattern for the given number of days."""
+        fib_series = self.fibonacci(days)
+        print(f"Growth pattern for {self.plant_name} over {days} days:")
+        for day, leaves in enumerate(fib_series, start=1):
+            print(f"Day {day}: {leaves} leaves")
+
+def main():
+    # Initialize two different Plant objects
+    plant1 = Plant("Rose", 150)
+    plant2 = Plant("Sunflower", 300)
+
+    # Display plant details
+    plants = [plant1, plant2]
+    for i, plant in enumerate(plants, start=1):
+        print(f"\nPlant {i}:")
+        print(f"Plant Name: {plant.plant_name}")
+        print(f"Maximum Height: {plant.max_height} cm")
+
+    # Ask user to select the plant and number of days for growth pattern
+    plant_choice = int(input("\nSelect a plant to view growth pattern (1 for Rose, 2 for Sunflower): "))
+    days = int(input("Enter the number of days to view the growth pattern: "))
+
+    if plant_choice in [1, 2]:
+        selected_plant = plants[plant_choice - 1]
+        selected_plant.growth_pattern(days)
+    else:
+        print("Invalid choice. Please select a valid plant.")
+
+if __name__ == "__main__":
+    main()
+
+
+# Write a Python program to create an abstract base class Polygon with abstract method to calculate area. 
+# Derive two subclasses Triangle (base, height, co-eff) and Rectangle (Length, width) from the Polygon. 
+# Re-defined abstract method in both of these subclasses. 
+# Design menu-driven program to display area of triangle and rectangle. Also make a provision to read data from the user.
+
+from abc import ABC, abstractmethod
+
+# Abstract base class
+class Polygon(ABC):
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+# Triangle class derived from Polygon
+class Triangle(Polygon):
+    def __init__(self, base, height, co_eff=0.5):
+        self.base = base
+        self.height = height
+        self.co_eff = co_eff
+
+    def calculate_area(self):
+        return self.co_eff * self.base * self.height
+
+# Rectangle class derived from Polygon
+class Rectangle(Polygon):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def calculate_area(self):
+        return self.length * self.width
+
+def main():
+    while True:
+        print("\nMenu:")
+        print("1. Calculate area of Triangle")
+        print("2. Calculate area of Rectangle")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            base = float(input("Enter the base of the triangle: "))
+            height = float(input("Enter the height of the triangle: "))
+            co_eff = float(input("Enter the coefficient (default is 0.5 for a right triangle, press Enter to use default): ") or 0.5)
+            triangle = Triangle(base, height, co_eff)
+            area = triangle.calculate_area()
+            print(f"The area of the triangle with base {base} and height {height} is {area:.2f}")
+
+        elif choice == '2':
+            length = float(input("Enter the length of the rectangle: "))
+            width = float(input("Enter the width of the rectangle: "))
+            rectangle = Rectangle(length, width)
+            area = rectangle.calculate_area()
+            print(f"The area of the rectangle with length {length} and width {width} is {area:.2f}")
+
+        elif choice == '3':
+            print("Exiting the program.")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
